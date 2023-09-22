@@ -1,0 +1,10 @@
+DB_HOST=your_database_host
+DB_NAME=ssisdb
+DB_USERNAME=your_database_username
+DB_PASSWORD=your_database_password
+SECRET_KEY=any_string_will_do
+
+CLOUD_NAME = your_cloudinary_name
+API_KEY = your_cloudinary_api_key
+API_SECRET = your_cloudinary_api_secretkey
+PHOTO_UPLOAD = cloud

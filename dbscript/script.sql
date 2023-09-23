@@ -11,7 +11,7 @@ PRIMARY KEY(code)
 CREATE TABLE `course`(
 code VARCHAR(10) NOT NULL,
 name VARCHAR(50) NOT NULL,
-collegecode VARCHAR(10),
+collegecode VARCHAR(10) NOT NULL,
 PRIMARY KEY(code),
 FOREIGN KEY(collegecode) REFERENCES college(code)
 );

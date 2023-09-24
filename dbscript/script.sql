@@ -2,13 +2,15 @@ DROP DATABASE IF EXISTS `ssis_web`;
 CREATE DATABASE IF NOT EXISTS `ssis_web`;
 use `ssis_web`;
 
-CREATE TABLE `college`(
+DROP TABLE IF EXISTS `college`;
+CREATE TABLE IF NOT EXISTS `college`(
 code VARCHAR(10) NOT NULL,
 name VARCHAR(50) NOT NULL,
 PRIMARY KEY(code)
 );
 
-CREATE TABLE `course`(
+DROP TABLE IF EXISTS `course`;
+CREATE TABLE IF NOT EXISTS `course`(
 code VARCHAR(10) NOT NULL,
 name VARCHAR(50) NOT NULL,
 collegecode VARCHAR(10) NOT NULL,
@@ -16,19 +18,17 @@ PRIMARY KEY(code),
 FOREIGN KEY(collegecode) REFERENCES college(code)
 );
 
-
-CREATE TABLE `students`(
+DROP TABLE IF EXISTS `student`;
+CREATE TABLE IF NOT EXISTS `student`(
 id VARCHAR(9) NOT NULL,
 firstname VARCHAR(50) NOT NULL,
-middlename VARCHAR(20) NOT NULL,
 lastname VARCHAR(20) NOT NULL,
+coursecode VARCHAR(10) NOT NULL,
 year INT(1) NOT NULL,
 gender VARCHAR(10) NOT NULL,
-coursecode VARCHAR(10) NOT NULL,
 PRIMARY KEY(id),
 FOREIGN KEY(coursecode) REFERENCES course(code)
 );
-
 
 INSERT INTO `college`(`code`, `name`)
 VALUES ('CCS', 'College of Computer Studies'),

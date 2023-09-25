@@ -13,7 +13,7 @@ conn = mysql.connector.connect(
 
 cursor = conn.cursor()
 
-with open('dbscript/script.sql', 'r') as file:
+with open('appp/dbscript/schema.sql', 'r') as file:
     queries = file.read()
 
 statements = queries.split(';')

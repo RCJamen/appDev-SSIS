@@ -9,6 +9,7 @@ python-dotenv = "*"
 flask-mysql-connector = "*"
 flask-bootstrap = "*"
 flask-wtf = "*"
+jinja2 = "*"
 
 [dev-packages]
 

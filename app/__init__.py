@@ -26,6 +26,6 @@ def create_app():
     # a simple page that says hello
     @app.route('/')
     def hello():
-        return render_template('index.html')
+        return render_template('studentBase.html')
 
     return app

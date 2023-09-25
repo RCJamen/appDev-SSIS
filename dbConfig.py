@@ -24,3 +24,5 @@ for statement in statements:
 
 conn.commit()
 conn.close()
+
+print("SQL queries executed successfully!")

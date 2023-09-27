@@ -1,4 +1,4 @@
-{% include "/modals/myModals.html" %}
+{% include "/modals/studentModals.html" %}
 {% extends "navigation.html" %}
 
 <!-- Static Body Content -->
@@ -9,7 +9,8 @@
         <div class="col-sm-2"></div>
         <!-- content goes here -->
         <div class="col-sm-8">
-            <h2>Student List <button class="btn btn-primary float-end" data-toggle="modal" data-target="#myModal">Add
+            <h2>Student List <button class="btn btn-primary float-end" data-toggle="modal"
+                    data-target="#myStudentModal">Add
                     Student</button></h2>
 
             {%with messages = get_flashed_messages()%}
@@ -49,7 +50,7 @@
                         <td>Male</td>
                         <td>
                             <a href="" class="btn btn-warning btn-sm" data-toggle="modal"
-                                data-target="#modalEdit">Edit</a>
+                                data-target="#editStudentModal">Edit</a>
                             <a href="" onclick="return confirm('Are Sure Want To Deleted ?')"
                                 class="btn btn-danger btn-sm">Delete</a>
                         </td>

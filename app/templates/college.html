@@ -1,17 +1,17 @@
-{% include "/modals/courseModals.html" %}
+{% include "/modals/collegeModals.html" %}
 {% extends "navigation.html" %}
 
 <!-- Static Body Content -->
-<!-- Courses -->
-{% block courses %}
+<!-- COLLEGE -->
+{% block college %}
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-2"></div>
         <!-- content goes here -->
         <div class="col-sm-8">
-            <h2>Course List <button class="btn btn-primary float-end" data-toggle="modal"
-                    data-target="#myCourseModal">Add
-                    Course</button></h2>
+            <h2>College List <button class="btn btn-primary float-end" data-toggle="modal"
+                    data-target="#myCollegeModal">Add
+                    College</button></h2>
 
             {%with messages = get_flashed_messages()%}
             {%if messages%}
@@ -32,25 +32,21 @@
                 <thead>
                     <tr>
                         <th scope="col">Code</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">College Code</th>
+                        <th scope="col-3">Name</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>BSCS</td>
-                        <td>Bachelor of Science In Computer Science</td>
-                        <td>CSS</td>
+                        <td>CCS</td>
+                        <td>College of Computer Studies</td>
                         <td>
                             <a href="" class="btn btn-warning btn-sm" data-toggle="modal"
-                                data-target="#editCourseModal">Edit</a>
+                                data-target="#editCollegeModal">Edit</a>
                             <a href="" onclick="return confirm('Are Sure Want To Deleted ?')"
                                 class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>
-
-
             </table>
         </div>
         <!-- Content ends here-->

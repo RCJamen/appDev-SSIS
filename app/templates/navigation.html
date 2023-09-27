@@ -11,7 +11,7 @@
             aria-selected="false">Courses</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" id="College-tab" data-toggle="tab" href="#College" role="tab" aria-controls="College"
+        <a class="nav-link" id="college-tab" data-toggle="tab" href="#college" role="tab" aria-controls="college"
             aria-selected="false">Colleges</a>
     </li>
 </ul>
@@ -21,7 +21,8 @@
     </div>
     <div class="tab-pane fade" id="course" role="tabpanel" aria-labelledby="course-tab">{% block courses
         %}{% endblock %}</div>
-    <div class="tab-pane fade" id="College" role="tabpanel" aria-labelledby="College-tab"></div>
+    <div class="tab-pane fade" id="college" role="tabpanel" aria-labelledby="college-tab">{% block college
+        %}{% endblock %}</div>
 </div>
 
 {% endblock %}

@@ -25,13 +25,9 @@ def create_app():
 
     # a simple page that says hello
     @app.route('/')
-    @app.route('/students')
-    def students():
-        return render_template('students.html')
+    def hello():
+        return render_template('college.html')
 
-    @app.route('/courses')
-    def courses():
-        return render_template('courses.html')
 
 
     return app

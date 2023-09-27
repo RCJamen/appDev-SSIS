@@ -1,0 +1,104 @@
+<!-- Enter New Student Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-primary" style="align-content: center;">Please Add
+                    New
+                    Student</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="POST">
+                    <div class="form-group mb-3">
+                        <label>ID Number</label>
+                        <input type="text" name="name" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Enter ID Number: xxxx-xxxx">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>First Name</label>
+                        <input type="text" name="email" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Enter First Name">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>Last Name</label>
+                        <input name="phone" type="text" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Enter Last Name">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>Course Code</label>
+                        <input name="phone" type="text" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Enter Course Code">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>Year Level</label>
+                        <input name="phone" type="text" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Enter Year Level">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>Gender</label>
+                        <input name="phone" type="text" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Enter Gender">
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-3">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Student Modal -->
+<div id="modalEdit" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-primary" style="align-content: center;">
+                    Update
+                    Student Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="POST">
+                    <input type="hidden" name="id" value="">
+                    <div class="form-group mb-3">
+                        <label>ID Number</label>
+                        <input value="" type="text" name="name" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Enter ID Number">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>First Name</label>
+                        <input value="" type="text" name="email" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Enter First Name">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>Last Name</label>
+                        <input value="" name="phone" type="text" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Enter Last Name">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>Course Code</label>
+                        <input value="" name="phone" type="text" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Enter Couse Code">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>Year Level</label>
+                        <input value="" name="phone" type="text" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Enter Year Level">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>Gender</label>
+                        <input value="" name="phone" type="text" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Male/Female">
+                    </div>
+                    <button type="submit" class="btn btn-success mb-3">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</tbody>
+<!-- End of Edit Student Modal -->

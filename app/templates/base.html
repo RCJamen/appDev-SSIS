@@ -1,0 +1,43 @@
+<!-- Parent Template -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Header / Footer CSS -->
+    <link rel="stylesheet" href="../static/css/base.css">
+</head>
+
+<body>
+    <!-- Header -->
+
+    <div class="div-title bg-light">
+        <h1 class="display-1">Student Information System</h1>
+        <p>by <a href="https://github.com/RCJamen">@RCJamen</a></p>
+    </div>
+
+    {% block navbar %}{% endblock %}
+
+    <!-- Footer -->
+    <div
+        class="div-footer d-lg-flex justify-content-around position-absolute bottom-0 start-50 translate-middle-x w-100 bg-light ">
+        <p><i class="fa fa-users"></i> contribute on github <a href="https://github.com/RCJamen/appDev-SSIS"
+                target="_blank">appDev-SSIS</a></p>
+        <p><i class="fa fa-balance-scale"></i> under MIT License</p>
+    </div>
+
+</body>
+<!-- SCRIPTS -->
+<script src="../static/js/jquery.min.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</html>

@@ -9,17 +9,14 @@ class Courses(object):
 
     def add(self):
         cursor = mysql.connection.cursor()
-
         sql = f"INSERT INTO courses(code, name, collegecode) \
             VALUES('{self.code}', '{self.name}', '{self.collegecode}')"
-
         cursor.execute(sql)
         mysql.connection.commit()
 
     @classmethod
     def all(cls):
         cursor = mysql.connection.cursor()
-
         sql = "SELECT * FROM courses"
         cursor.execute(sql)
         result = cursor.fetchall()

@@ -3,7 +3,7 @@
 
 <!-- Static Body Content -->
 <!-- STUDENTS -->
-{% block students %}
+{% block studentTemplate %}
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-2"></div>
@@ -41,23 +41,23 @@
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
+                {% for student in students %}
                 <tbody>
                     <tr>
-                        <td>2019-2093</td>
-                        <td>Ramel Cary</td>
-                        <td>Jamen</td>
-                        <td>BSCS</td>
-                        <td>4</td>
-                        <td>Male</td>
+                        <td>{{student[0]}}</td>
+                        <td>{{student[1]}}</td>
+                        <td>{{student[2]}}</td>
+                        <td>{{student[3]}}</td>
+                        <td>{{student[4]}}</td>
+                        <td>{{student[5]}}</td>
                         <td>
                             <a href="" class="btn btn-warning btn-sm" data-toggle="modal"
                                 data-target="#editStudentModal">Edit</a>
-                            <a href="" onclick="return confirm('Are Sure Want To Deleted ?')"
-                                class="btn btn-danger btn-sm">Delete</a>
+                            <a href="" data-id="{{ student[0] }}" class="btn btn-danger btn-sm btn-delete">Delete</a>
+
                         </td>
                     </tr>
-
-
+                    {%endfor%}
             </table>
         </div>
         <!-- Content ends here-->

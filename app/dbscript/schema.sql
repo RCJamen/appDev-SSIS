@@ -45,3 +45,5 @@ VALUES ('BSCS', 'Bachelor of Science in Computer Science', 'CCS'),
        ('BSCA', 'Bachelor of Science in Computer Application', 'CCS'),
        ('BSN', 'Bachelor of Science in Nursing', 'CON'),
        ('BSM', 'Bachelor of Science in Mathematics', 'CSM');
+
+INSERT INTO `students`(`id`, `firstname`, `lastname`,`coursecode`,`year`,`gender`) VALUES ('2019-2093','Ramel Cary','Jamen','BSCS','1','Male');

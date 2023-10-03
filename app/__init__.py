@@ -7,6 +7,7 @@ from flask_wtf.csrf import CSRFProtect
 mysql = MySQL()
 bootstrap = Bootstrap()
 
+
 def create_app():
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
@@ -19,17 +20,20 @@ def create_app():
     mysql.init_app(app)
     CSRFProtect(app)
 
-    #Blueprints
-    # from .views.students import student
-    # from .views.courses import course
+    # Blueprints
+    from .views.students import student
+    from .views.courses import course
+
     # from .views.colleges import college
-    # app.register_blueprint(student)
-    # app.register_blueprint(course)
+
+    app.register_blueprint(student)
+    app.register_blueprint(course)
+
     # app.register_blueprint(college)
 
     # a simple page that says hello
-    @app.route('/')
-    def hello():
-        return render_template('students.html')
+    # @app.route("/")
+    # def hello():
+    #     return render_template("students.html")
 
     return app

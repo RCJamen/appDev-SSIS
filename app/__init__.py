@@ -23,17 +23,10 @@ def create_app():
     # Blueprints
     from .views.students import student
     from .views.courses import course
-
-    # from .views.colleges import college
+    from .views.colleges import college
 
     app.register_blueprint(student)
     app.register_blueprint(course)
-
-    # app.register_blueprint(college)
-
-    # a simple page that says hello
-    # @app.route("/")
-    # def hello():
-    #     return render_template("students.html")
+    app.register_blueprint(college)
 
     return app

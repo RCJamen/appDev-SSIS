@@ -7,10 +7,9 @@ $(function () {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-
             $.ajax({
                 url: url,
-                method: 'post',
+                method: 'POST',
                 data: { id: id },
                 success: function (result) {
                     console.log(result);
@@ -24,6 +23,4 @@ $(function () {
             });
         }
     });
-
-
 });

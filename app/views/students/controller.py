@@ -3,13 +3,14 @@ from flask.helpers import url_for
 from app.views.students.forms import StudentForm
 from flask import render_template, redirect, request, jsonify
 from . import student
-import app.models.student as models
+import app.models.student as studentModel
+import app.models.course as courseModel
 
 
 @student.route("/")
 @student.route("/student")
 def index():
-    students = models.Students.all()
+    students = studentModel.Students.all()
     return render_template(
         "students.html", students=students, title="Home", something="something"
     )
@@ -18,10 +19,29 @@ def index():
 @student.route("/student/delete", methods=["POST"])
 def delete_student():
     id = request.form["id"]
-    if models.Students.delete(id):
+    if studentModel.Students.delete(id):
         return jsonify(success=True, message="Successful")
     else:
         return jsonify(success=False, message="Failed")
+
+
+@student.route("/student/add", methods=["POST", "GET"])
+def add_student():
+    form = StudentForm(request.form)
+    if request.method == "POST" and form.validate():
+        student = studentModel.Students(
+            id=form.id.data,
+            firstname=form.firstname.data,
+            lastname=form.lastname.data,
+            coursecode=form.coursecode.data,
+            year=form.year.data,
+            gender=form.gender.data,
+        )
+        student.add()
+        return redirect("/student")
+    else:
+        courses = courseModel.Courses.refer()
+        return render_template("students.html", form=form, data=courses)
 
 
 # @student.route("/student/add", methods=["POST", "GET"])
@@ -36,22 +56,22 @@ def delete_student():
 #             id_number=form.id_number.data,
 #             first_name=form.first_name.data,
 #             last_name=form.last_name.data,
-#             course=form.course.data,
+#             student=form.student.data,
 #             year=form.year.data,
 #             gender=form.gender.data,
 #         )
 #         student.add(image_url)
 #         return redirect("/")
 #     else:
-#         course = models.Courses.refer()
-#         return render_template("user/student.html", form=form, data=course)
+#         student = models.students.refer()
+#         return render_template("user/student.html", form=form, data=student)
 
 
 # @student.route("/student/edit/<id>", methods=["POST", "GET"])
 # def edit_student(id):
 #     student = models.Students.edit(id)
-#     course = models.Courses.refer()
-#     return render_template("user/edit.html", data=student[0], datas=course)
+#     student = models.students.refer()
+#     return render_template("user/edit.html", data=student[0], datas=student)
 
 
 # @student.route("/student/update/<id>", methods=["POST"])
@@ -60,18 +80,11 @@ def delete_student():
 #         id_number = request.form["id_number"]
 #         first_name = request.form["first_name"]
 #         last_name = request.form["last_name"]
-#         course = request.form["course"]
+#         student = request.form["student"]
 #         year = request.form["year"]
 #         gender = request.form["gender"]
 
 #         student = models.Students.update(
-#             id, id_number, first_name, last_name, course, year, gender
+#             id, id_number, first_name, last_name, student, year, gender
 #         )
 #         return redirect(url_for(".index"))
-
-
-# @student.route("/student/search", methods=["GET", "POST"])
-# def search_student():
-#     key_name = request.form.get("key_name")
-#     students = models.Students.search(key_name)
-#     return render_template("user/index.html", data=students)

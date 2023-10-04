@@ -8,7 +8,6 @@ class Colleges(object):
 
     def add(self):
         cursor = mysql.connection.cursor()
-
         sql = f"INSERT INTO colleges(code, name) \
             VALUES('{self.code}', '{self.name}')"
         cursor.execute(sql)
@@ -59,14 +58,6 @@ class Colleges(object):
     def refer(cls):
         cursor = mysql.connection.cursor()
         sql = f"SELECT code FROM colleges"
-        cursor.execute(sql)
-        result = cursor.fetchall()
-        return result
-
-    @classmethod
-    def search(cls, key_name):
-        cursor = mysql.connection.cursor()
-        sql = f"SELECT * FROM colleges WHERE code = '{key_name}' OR name = '{key_name}'"
         cursor.execute(sql)
         result = cursor.fetchall()
         return result

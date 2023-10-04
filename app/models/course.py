@@ -64,11 +64,3 @@ class Courses(object):
         cursor.execute(sql)
         result = cursor.fetchall()
         return result
-
-    @classmethod
-    def search(cls, key_name):
-        cursor = mysql.connection.cursor()
-        sql = f"SELECT * FROM courses WHERE code = '{key_name}' OR name = '{key_name}' OR collegecode = '{key_name}'"
-        cursor.execute(sql)
-        result = cursor.fetchall()
-        return result

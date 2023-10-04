@@ -24,14 +24,6 @@ def delete_student():
         return jsonify(success=False, message="Failed")
 
 
-# def index():
-#     data = models.Students.all()
-#     students = []
-#     for student in data:
-#         students.append(student)
-#     return jsonify(students)
-
-
 # @student.route("/student/add", methods=["POST", "GET"])
 # def add_student():
 #     form = StudentForm(request.form)

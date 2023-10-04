@@ -11,22 +11,27 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="" method="POST">
+                <form action="{{ url_for('course.add_course') }}" method="POST">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                     <div class="form-group mb-3">
                         <label>Code</label>
-                        <input type="text" name="name" class="form-control" id="exampleFormControlInput1"
-                            placeholder="Enter Code">
+                        <input type="text" name="code" class="form-control" placeholder="Enter Code">
                     </div>
                     <div class="form-group mb-3">
                         <label>Name</label>
-                        <input type="text" name="email" class="form-control" id="exampleFormControlInput1"
-                            placeholder="Enter Course Name">
+                        <input type="text" name="name" class="form-control" placeholder="Enter Course Name">
                     </div>
                     <div class="form-group mb-3">
                         <label>College Code</label>
-                        <input name="phone" type="text" class="form-control" id="exampleFormControlInput1"
-                            placeholder="Enter College Code">
+                        <!-- <select class="form-select" aria-label="Default select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">CCS</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select> -->
+                        <input name="collegecode" type="text" class="form-control" placeholder="Enter College Code">
                     </div>
+
                     <button type="submit" class="btn btn-primary mb-3">Save</button>
                 </form>
             </div>
@@ -51,18 +56,15 @@
                     <input type="hidden" name="id" value="">
                     <div class="form-group mb-3">
                         <label>Code</label>
-                        <input value="" type="text" name="name" class="form-control" id="exampleFormControlInput1"
-                            placeholder="Edit Code">
+                        <input value="" type="text" name="name" class="form-control" placeholder="Edit Code">
                     </div>
                     <div class="form-group mb-3">
                         <label>Course Name</label>
-                        <input value="" type="text" name="email" class="form-control" id="exampleFormControlInput1"
-                            placeholder="Edit Course Name">
+                        <input value="" type="text" name="email" class="form-control" placeholder="Edit Course Name">
                     </div>
                     <div class="form-group mb-3">
                         <label>College Code</label>
-                        <input value="" name="phone" type="text" class="form-control" id="exampleFormControlInput1"
-                            placeholder="Edit College Code">
+                        <input value="" name="phone" type="text" class="form-control" placeholder="Edit College Code">
                     </div>
 
                     <button type="submit" class="btn btn-success mb-3">Update</button>

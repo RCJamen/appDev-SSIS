@@ -69,11 +69,3 @@ class Students(object):
             (id, firstname, lastname, coursecode, year, gender),
         )
         mysql.connection.commit()
-
-    @classmethod
-    def search(cls, key_name):
-        cursor = mysql.connection.cursor()
-        sql = f"SELECT * FROM students WHERE firstname = '{key_name}' OR lastname = '{key_name}' OR id = '{key_name}' OR coursecode = '{key_name}' OR year = '{key_name}' OR gender = '{key_name}'"
-        cursor.execute(sql)
-        result = cursor.fetchall()
-        return result

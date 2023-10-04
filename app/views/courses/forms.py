@@ -6,5 +6,5 @@ import app.models.course as models
 class courseForm(FlaskForm):
     code = StringField("Code", [validators.DataRequired()])
     name = StringField("Name", [validators.DataRequired()])
-    college = StringField("College", [validators.DataRequired()])
+    collegecode = StringField("Collegecode", [validators.DataRequired()])
     submit = SubmitField("Submit")

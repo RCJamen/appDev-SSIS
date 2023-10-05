@@ -1,6 +1,6 @@
 $(function () {
     $(".btn-delete").click(function () {
-        var id = $(this).attr('data-id');
+        var code = $(this).attr('data-id');
         if (confirm("Are your sure?")) {
             $.ajaxSetup({
                 headers: {
@@ -10,7 +10,7 @@ $(function () {
             $.ajax({
                 url: url,
                 method: 'POST',
-                data: { id: id },
+                data: { code: code },
                 success: function (result) {
                     console.log(result);
                     if (result.success) {

@@ -42,10 +42,9 @@
                         <td>{{college[0]}}</td>
                         <td>{{college[1]}}</td>
                         <td>
-                            <a href="" class="btn btn-warning btn-sm" data-toggle="modal"
-                                data-target="#editCollegeModal">Edit</a>
-                            <a href="" onclick="return confirm('Are Sure Want To Deleted ?')"
-                                class="btn btn-danger btn-sm">Delete</a>
+                            <button class="btn btn-warning btn-sm" data-toggle="modal"
+                                data-target="#editCollegeModal">Edit</button>
+                            <button data-id="{{ college[0]}}" class="btn btn-danger btn-sm btn-delete">Delete</button>
                         </td>
                     </tr>
                 <tbody>
@@ -56,6 +55,10 @@
         <div class="col-sm-2"></div>
     </div>
 </div>
-</div>
-<!-- END OF STUDENTS -->
+<script>
+    var url = "{{ url_for('college.delete_college') }}";
+</script>
+<script src="{{ url_for('static',filename='js/deleteCollege.js')}}"></script>
+
+<!-- END OF COLLEGE -->
 {% endblock %}

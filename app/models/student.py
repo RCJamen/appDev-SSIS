@@ -37,12 +37,12 @@ class Students(object):
     def delete(cls, id):
         try:
             cursor = mysql.connection.cursor()
-            sql = f"DELETE FROM students WHERE id = {id}"
+            sql = f"DELETE from users where id= {id}"
             cursor.execute(sql)
             mysql.connection.commit()
             return True
         except:
-            False
+            return False
 
     @classmethod
     def edit(cls, id):

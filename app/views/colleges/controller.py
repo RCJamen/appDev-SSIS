@@ -16,11 +16,11 @@ def index():
 
 @college.route("/college/delete", methods=["POST"])
 def delete_college():
-    id = request.form["id"]
-    if collegeModel.Colleges.delete(id):
-        return jsonify(success=True, message="Successful")
+    code = request.form["code"]
+    if collegeModel.Colleges.delete(code):
+        return jsonify(success=True, message="Successfully deleted College")
     else:
-        return jsonify(success=False, message="Failed")
+        return jsonify(success=False, message="Failed to Delete College")
 
 
 @college.route("/college/add", methods=["POST", "GET"])
@@ -32,3 +32,13 @@ def add_college():
         return redirect("/college")
     else:
         return render_template("colleges.html", form=form)
+
+
+@college.route("/college/update/<id>", methods=["POST"])
+def update_college(id):
+    if request.method == "POST":
+        code = request.form["code"]
+        name = request.form["name"]
+
+        colleges = collegeModel.Colleges.update(id, code, name)
+        return redirect(url_for(".college_index"))

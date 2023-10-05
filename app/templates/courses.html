@@ -44,10 +44,11 @@
                         <td>{{course[1]}}</td>
                         <td>{{course[2]}}</td>
                         <td>
-                            <a href="" class="btn btn-warning btn-sm" data-toggle="modal"
-                                data-target="#editCourseModal">Edit</a>
-                            <a href="" onclick="return confirm('Are Sure Want To Deleted ?')"
-                                class="btn btn-danger btn-sm">Delete</a>
+                            <button href="" class="btn btn-warning btn-sm" data-toggle="modal"
+                                data-target="#editCourseModal">Edit</button>
+                            <button href="" data-id="{{ course[0]}}"
+                                class="btn btn-danger btn-sm btn-delete">Delete</button>
+
                         </td>
                     </tr>
                     {%endfor%}
@@ -59,5 +60,12 @@
     </div>
 </div>
 </div>
-<!-- END OF STUDENTS -->
+<!-- END OF COURSE -->
+{% endblock %}
+{% block scripts%}
+{{super()}}
+<script>
+    var url = "{{ url_for('course.delete_course') }}";
+</script>
+<script src="{{ url_for('static',filename='js/index.js')}}"></script>
 {% endblock %}

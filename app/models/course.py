@@ -45,7 +45,7 @@ class Courses(object):
         return result
 
     @classmethod
-    def update(cls, id, code, name, collegecode):
+    def update(cls, code, name, collegecode):
         cursor = mysql.connection.cursor()
         cursor.execute(
             """

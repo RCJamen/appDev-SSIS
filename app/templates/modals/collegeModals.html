@@ -44,12 +44,12 @@
                 <form action="" method="POST">
                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                     <div class="form-group mb-3">
-                        <label>Code</label>
-                        <input value="" type="text" name="code" class="form-control" placeholder="Edit Code">
+                        <label for="editCodeInput">Code</label>
+                        <input value="" type="text" name="code" class="form-control" id="editCodeInput">
                     </div>
                     <div class="form-group mb-3">
-                        <label>College Name</label>
-                        <input value="" type="text" name="name" class="form-control" placeholder="Edit College">
+                        <label for="editNameInput">College Name</label>
+                        <input value="" type="text" name="name" class="form-control" id="editNameInput">
                     </div>
                     <button type="submit" class="btn btn-success mb-3">Update</button>
                 </form>

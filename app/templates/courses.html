@@ -44,21 +44,20 @@
                         <td>{{course[1]}}</td>
                         <td>{{course[2]}}</td>
                         <td>
-                            <button class="btn btn-warning btn-sm" data-toggle="modal"
+                            <button class="btn btn-warning btn-sm edit-btnCourse" data-toggle="modal"
+                                data-code="{{course[0]}}" data-name="{{course[1]}}" data-collegecode="{{course[2]}}"
                                 data-target="#editCourseModal">Edit</button>
                             <button data-code="{{ course[0] }}"
                                 class="btn btn-danger btn-sm btn-deleteCourse">Delete</button>
-
                         </td>
                     </tr>
-                    {%endfor%}
                 </tbody>
+                {%endfor%}
             </table>
         </div>
         <!-- Content ends here-->
         <div class="col-sm-2"></div>
     </div>
-</div>
 </div>
 <!-- END OF COURSE -->
 {% endblock %}

@@ -61,14 +61,13 @@ class Students(object):
         cursor.execute(
             """
             UPDATE students
-            SET id = %s,
-                firstname = %s,
+            SET firstname = %s,
                 lastname = %s,
                 coursecode = %s,
                 year = %s,
                 gender = %s
             WHERE id = %s
             """,
-            (id, firstname, lastname, coursecode, year, gender),
+            (firstname, lastname, coursecode, year, gender, id),
         )
         mysql.connection.commit()

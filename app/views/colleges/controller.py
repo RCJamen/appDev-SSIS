@@ -9,16 +9,7 @@ import app.models.college as collegeModel
 @college.route("/college")
 def index():
     colleges = collegeModel.Colleges.all()
-    form = collegeForm(request.form)
-    college = collegeModel.Colleges(code=form.code.data, name=form.name.data)
-
-    return render_template(
-        "colleges.html",
-        colleges=colleges,
-        college=college,
-        title="Home",
-        something="something",
-    )
+    return render_template("colleges.html", colleges=colleges)
 
 
 @college.route("/college/delete", methods=["POST"])

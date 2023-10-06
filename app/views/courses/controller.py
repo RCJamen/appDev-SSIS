@@ -10,17 +10,16 @@ import app.models.college as collegeModel
 @course.route("/course")
 def index():
     courses = courseModel.Courses.all()
-    colleges = collegeModel.Colleges.all()
-    return render_template("courses.html", courses=courses, colleges=colleges)
+    return render_template("courses.html", courses=courses)
 
 
 @course.route("/course/delete", methods=["POST"])
 def delete_course():
-    id = request.form["id"]
-    if courseModel.Courses.delete(id):
-        return jsonify(success=True, message="Successful")
+    code = request.form["code"]
+    if courseModel.Courses.delete(code):
+        return jsonify(success=True, message="Successfully deleted Course")
     else:
-        return jsonify(success=False, message="Failed")
+        return jsonify(success=False, message="Failed to Delete Course")
 
 
 @course.route("/course/add", methods=["POST", "GET"])

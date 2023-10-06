@@ -1,5 +1,5 @@
 $(function () {
-    $(".btn-delete").click(function () {
+    $(".btn-deleteCollege").click(function () {
         var code = $(this).attr('data-code');
         if (confirm("Are your sure you want to Delete College?")) {
             $.ajaxSetup({

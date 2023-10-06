@@ -67,10 +67,3 @@
 </div>
 <!-- END OF STUDENTS -->
 {% endblock %}
-{% block scripts%}
-{{super()}}
-<script>
-    var url = "{{ url_for('student.delete_student') }}";
-</script>
-<script src="{{ url_for('static',filename='js/index.js')}}"></script>
-{% endblock %}

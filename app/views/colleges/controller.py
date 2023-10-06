@@ -32,11 +32,14 @@ def add_college():
         return render_template("colleges.html", form=form)
 
 
-@college.route("/college/update/<id>", methods=["POST"])
-def update_college(id):
+@college.route("/college/update", methods=["POST"])
+def update_college():
     if request.method == "POST":
         code = request.form["code"]
         name = request.form["name"]
 
-        colleges = collegeModel.Colleges.update(id, code, name)
-        return redirect(url_for("college.index"))
+        try:
+            collegeModel.Colleges.update(code, name)
+            return redirect(url_for(".index"))
+        except Exception as e:
+            return f"Error updating college: {str(e)}"

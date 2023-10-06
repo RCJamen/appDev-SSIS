@@ -44,7 +44,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="" method="POST">
+                <form action="{{ url_for('course.update_course') }}" method="POST">
                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                     <div class="form-group mb-3">
                         <label for="editCodeInput">Code</label>

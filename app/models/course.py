@@ -50,12 +50,11 @@ class Courses(object):
         cursor.execute(
             """
             UPDATE courses
-            SET code = %s,
-                name = %s,
+            SET name = %s,
                 collegecode = %s
-            WHERE id = %s
+            WHERE code = %s
             """,
-            (code, name, collegecode, id),
+            (name, collegecode, code),
         )
         mysql.connection.commit()
 

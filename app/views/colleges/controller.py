@@ -9,8 +9,15 @@ import app.models.college as collegeModel
 @college.route("/college")
 def index():
     colleges = collegeModel.Colleges.all()
+    form = collegeForm(request.form)
+    college = collegeModel.Colleges(code=form.code.data, name=form.name.data)
+
     return render_template(
-        "colleges.html", colleges=colleges, title="Home", something="something"
+        "colleges.html",
+        colleges=colleges,
+        college=college,
+        title="Home",
+        something="something",
     )
 
 
@@ -41,4 +48,4 @@ def update_college(id):
         name = request.form["name"]
 
         colleges = collegeModel.Colleges.update(id, code, name)
-        return redirect(url_for(".college_index"))
+        return redirect(url_for("college.index"))

@@ -62,10 +62,3 @@
 </div>
 <!-- END OF COURSE -->
 {% endblock %}
-{% block scripts%}
-{{super()}}
-<script>
-    var url = "{{ url_for('course.delete_course') }}";
-</script>
-<script src="{{ url_for('static',filename='js/index.js')}}"></script>
-{% endblock %}

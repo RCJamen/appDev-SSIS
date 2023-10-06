@@ -29,6 +29,7 @@
             {%endwith%}
 
             <table class="table table-hover mt-3">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                 <thead>
                     <tr>
                         <th scope="col">Code</th>
@@ -42,9 +43,10 @@
                         <td>{{college[0]}}</td>
                         <td>{{college[1]}}</td>
                         <td>
-                            <button class="btn btn-warning btn-sm" data-toggle="modal"
-                                data-target="#editCollegeModal">Edit</button>
-                            <button data-id="{{ college[0]}}" class="btn btn-danger btn-sm btn-delete">Delete</button>
+                            <button class="btn btn-warning btn-sm edit-btn" data-toggle="modal"
+                                data-target="#editCollegeModal" data-code="{{college[0]}}"
+                                data-name="{{college[1]}}">Edit</button>
+                            <button data-code="{{ college[0]}}" class="btn btn-danger btn-sm btn-delete">Delete</button>
                         </td>
                     </tr>
                 <tbody>
@@ -55,9 +57,7 @@
         <div class="col-sm-2"></div>
     </div>
 </div>
-<script>
-    var url = "{{ url_for('college.delete_college') }}";
-</script>
+
 <script src="{{ url_for('static',filename='js/deleteCollege.js')}}"></script>
 
 <!-- END OF COLLEGE -->

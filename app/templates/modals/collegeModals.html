@@ -42,16 +42,14 @@
             </div>
             <div class="modal-body">
                 <form action="" method="POST">
-                    <input type="hidden" name="id" value="">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                     <div class="form-group mb-3">
                         <label>Code</label>
-                        <input value="" type="text" name="name" class="form-control" id="exampleFormControlInput1"
-                            placeholder="Edit Code">
+                        <input value="" type="text" name="code" class="form-control" placeholder="{{ college[0] }}">
                     </div>
                     <div class="form-group mb-3">
                         <label>College Name</label>
-                        <input value="" type="text" name="email" class="form-control" id="exampleFormControlInput1"
-                            placeholder="Edit College Name">
+                        <input value="" type="text" name="name" class="form-control" placeholder=" {{ college[1] }}">
                     </div>
                     <button type="submit" class="btn btn-success mb-3">Update</button>
                 </form>

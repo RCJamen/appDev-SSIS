@@ -1,14 +1,14 @@
 $(function () {
     $(".btn-delete").click(function () {
         var code = $(this).attr('data-code');
-        if (confirm("Are your sure you want to Delete College?")) {
+        if (confirm("Are your sure you want to Delete Course?")) {
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
             $.ajax({
-                url: '/college/delete',
+                url: '/course/delete',
                 method: 'POST',
                 data: { code: code },
                 success: function (result) {

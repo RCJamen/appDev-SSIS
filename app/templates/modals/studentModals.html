@@ -58,30 +58,30 @@
             </div>
             <div class="modal-body">
                 <form action="" method="POST">
-                    <input type="hidden" name="id" value="">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                     <div class="form-group mb-3">
-                        <label>ID Number</label>
-                        <input value="" type="text" name="name" class="form-control" placeholder="Enter ID Number">
+                        <label for="editIdInput">ID Number</label>
+                        <input value="" type="text" name="code" class="form-control" id="editIdInput">
                     </div>
                     <div class="form-group mb-3">
-                        <label>First Name</label>
-                        <input value="" type="text" name="email" class="form-control" placeholder="Enter First Name">
+                        <label for="editFirstnameInput">First Name</label>
+                        <input value="" type="text" name="firstname" class="form-control" id="editFirstnameInput">
                     </div>
                     <div class="form-group mb-3">
-                        <label>Last Name</label>
-                        <input value="" name="phone" type="text" class="form-control" placeholder="Enter Last Name">
+                        <label for="editLastnameInput">Last Name</label>
+                        <input value="" type="text" name="lastname" class="form-control" id="editLastnameInput">
                     </div>
                     <div class="form-group mb-3">
-                        <label>Course Code</label>
-                        <input value="" name="phone" type="text" class="form-control" placeholder="Enter Couse Code">
+                        <label for="editCoursecodeInput">Course Code</label>
+                        <input value="" type="text" name="coursecode" class="form-control" id="editCoursecodeInput">
                     </div>
                     <div class="form-group mb-3">
-                        <label>Year Level</label>
-                        <input value="" name="phone" type="text" class="form-control" placeholder="Enter Year Level">
+                        <label for="editYearInput">Year Level</label>
+                        <input value="" type="text" name="year" class="form-control" id="editYearInput">
                     </div>
                     <div class="form-group mb-3">
-                        <label>Gender</label>
-                        <input value="" name="phone" type="text" class="form-control" placeholder="Male/Female">
+                        <label for="editGenderInput">Gender</label>
+                        <input value="" type="text" name="gender" class="form-control" id="editGenderInput">
                     </div>
                     <button type="submit" class="btn btn-success mb-3">Update</button>
                 </form>

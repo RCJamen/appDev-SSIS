@@ -14,8 +14,8 @@ def index():
 
 @college.route("/college/delete", methods=["POST"])
 def delete_college():
-    code = request.form["code"]
-    if collegeModel.Colleges.delete(code):
+    college_code = request.form["code"]
+    if collegeModel.Colleges.delete(college_code):
         return jsonify(success=True, message="Successfully deleted College")
     else:
         return jsonify(success=False, message="Failed to Delete College")

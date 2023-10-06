@@ -17,12 +17,12 @@ def index():
 
 
 @student.route("/student/delete", methods=["POST"])
-def delete_student():
-    id = request.form["id"]
-    if studentModel.Students.delete(id):
-        return jsonify(success=True, message="Successful")
+def delete_college():
+    student_id = request.form["id"]
+    if studentModel.Students.delete(student_id):
+        return jsonify(success=True, message="Successfully deleted Student")
     else:
-        return jsonify(success=False, message="Failed")
+        return jsonify(success=False, message="Failed to Delete Student")
 
 
 @student.route("/student/add", methods=["POST", "GET"])

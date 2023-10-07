@@ -48,14 +48,6 @@ class Students(object):
             cursor.close()
 
     @classmethod
-    def edit(cls, id):
-        cursor = mysql.connection.cursor()
-        sql = f"SELECT * FROM students WHERE id = {id}"
-        cursor.execute(sql)
-        result = cursor.fetchall()
-        return result
-
-    @classmethod
     def update(cls, id, firstname, lastname, coursecode, year, gender):
         cursor = mysql.connection.cursor()
         cursor.execute(

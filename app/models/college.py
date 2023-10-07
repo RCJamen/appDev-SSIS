@@ -36,14 +36,6 @@ class Colleges(object):
             cursor.close()
 
     @classmethod
-    def edit(cls, code):
-        cursor = mysql.connection.cursor()
-        sql = f"SELECT * FROM colleges WHERE code = {code}"
-        cursor.execute(sql)
-        result = cursor.fetchall()
-        return result
-
-    @classmethod
     def update(cls, code, name):
         cursor = mysql.connection.cursor()
         cursor.execute(

@@ -45,3 +45,13 @@ def update_college():
             return redirect(url_for(".index"))
         except Exception as e:
             return f"Error updating college: {str(e)}"
+
+
+@college.route("/college/search", methods=["GET", "POST"])
+def search_college():
+    info = request.form.get("information")
+    if info is None or info.strip() == "":
+        colleges = collegeModel.Colleges.all()
+    else:
+        colleges = collegeModel.Colleges.search(info)
+    return render_template("colleges.html", colleges=colleges)

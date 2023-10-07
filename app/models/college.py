@@ -55,3 +55,17 @@ class Colleges(object):
         cursor.execute(sql)
         result = cursor.fetchall()
         return result
+
+    @classmethod
+    def search(cls, info):
+        print(info)
+        cursor = mysql.connection.cursor()
+        keywords = info.split()
+        conditions = []
+        for keyword in keywords:
+            conditions.append(f"name LIKE '%{keyword}%'")
+        conditions_sql = " OR ".join(conditions)
+        sql = f"SELECT * FROM colleges WHERE code = '{info}' OR ({conditions_sql})"
+        cursor.execute(sql)
+        result = cursor.fetchall()
+        return result

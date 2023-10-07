@@ -49,3 +49,13 @@ def update_course():
             return redirect(url_for(".index"))
         except Exception as e:
             return f"Error updating college: {str(e)}"
+
+
+@course.route("/course/search", methods=["GET", "POST"])
+def search_course():
+    info = request.form.get("information")
+    if info is None or info.strip() == "":
+        courses = courseModel.Courses.all()
+    else:
+        courses = courseModel.Courses.search(info)
+    return render_template("courses.html", courses=courses)

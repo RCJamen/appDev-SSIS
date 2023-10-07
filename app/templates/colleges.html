@@ -30,7 +30,6 @@
 
             <form class="row mt-4" action="{{ url_for('college.search_college') }}" method="POST">
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-
                 <div class="col-auto">
                     <p class="fw-semi-bold fs-5">Search College: </p>
                 </div>

@@ -32,17 +32,13 @@ FOREIGN KEY(coursecode) REFERENCES courses(code)
 
 INSERT INTO `colleges`(`code`, `name`)
 VALUES ('CCS', 'College of Computer Studies'),
-	     ('CSM', 'College of Science and Mathematics'),
+	('CSM', 'College of Science and Mathematics'),
        ('CASS', 'College of Arts and Social Sciences'),
-       ('COET', 'College of Engineering and Technology'),
-       ('CED', 'College of Education'),
        ('CON', 'College of Nursing');
 
 INSERT INTO `courses`(`code`, `name`, `collegecode`)
 VALUES ('BSCS', 'Bachelor of Science in Computer Science', 'CCS'),
-	     ('BSIT', 'Bachelor of Science in Information Technology', 'CCS'),
        ('BSIS', 'Bachelor of Science in Information System', 'CCS'),
-       ('BSCA', 'Bachelor of Science in Computer Application', 'CCS'),
        ('BSN', 'Bachelor of Science in Nursing', 'CON'),
        ('BSM', 'Bachelor of Science in Mathematics', 'CSM');
 

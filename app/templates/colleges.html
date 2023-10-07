@@ -28,7 +28,23 @@
             {%endif%}
             {%endwith%}
 
-            <table class="table table-hover mt-3">
+            <form class="row mt-4" action="" method="POST">
+                <div class="col-auto">
+                    <p class="fw-semi-bold fs-5">Search College: </p>
+                </div>
+                <div class="col-auto">
+                    <label for=""></label>
+                    <input type="text" class="form-control" id="" placeholder="College Information">
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+                <div class="col-auto">
+                    <a href="/college" class="btn btn-primary">Clear</a>
+                </div>
+            </form>
+
+            <table class="table table-hover">
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                 <thead>
                     <tr>

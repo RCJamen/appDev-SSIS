@@ -63,3 +63,13 @@ def update_student():
             return redirect(url_for(".index"))
         except Exception as e:
             return f"Error updating college: {str(e)}"
+
+
+@student.route("/student/search", methods=["GET", "POST"])
+def search_student():
+    info = request.form.get("information")
+    if info is None or info.strip() == "":
+        students = studentModel.Students.all()
+    else:
+        students = studentModel.Students.search(info)
+    return render_template("students.html", students=students)

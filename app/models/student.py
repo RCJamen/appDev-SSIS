@@ -63,3 +63,19 @@ class Students(object):
             (firstname, lastname, coursecode, year, gender, id),
         )
         mysql.connection.commit()
+
+    @classmethod
+    def search(cls, info):
+        print(info)
+        cursor = mysql.connection.cursor()
+        keywords = info.split()
+        conditions = []
+        for keyword in keywords:
+            conditions.append(
+                f"firstname LIKE '%{keyword}%' OR lastname LIKE '%{keyword}%'"
+            )
+        conditions_sql = " OR ".join(conditions)
+        sql = f"SELECT * FROM students WHERE id = '{info}' OR coursecode = '{info}' OR year = '{info}' OR gender = '{info}' OR ({conditions_sql})"
+        cursor.execute(sql)
+        result = cursor.fetchall()
+        return result

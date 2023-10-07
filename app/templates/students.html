@@ -29,13 +29,13 @@
             {%endif%}
             {%endwith%}
 
-            <form class="row mt-4">
+            <form class="row mt-4" action="{{ url_for('student.search_student') }}" method="POST">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                 <div class="col-auto">
                     <p class="fw-semi-bold fs-5">Search Student: </p>
                 </div>
                 <div class="col-auto">
-                    <label for=""></label>
-                    <input type="text" class="form-control" id="" placeholder="Student Information">
+                    <input type="text" class="form-control" name="information" placeholder="Student Information">
                 </div>
                 <div class="col-auto">
                     <button type="submit" class="btn btn-primary">Search</button>

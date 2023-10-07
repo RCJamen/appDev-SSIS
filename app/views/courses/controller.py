@@ -1,7 +1,7 @@
 from os import name
 from flask.helpers import url_for
 from app.views.courses.forms import courseForm
-from flask import render_template, redirect, request, jsonify
+from flask import render_template, redirect, request, jsonify, flash
 from . import course
 import app.models.course as courseModel
 import app.models.college as collegeModel
@@ -30,9 +30,11 @@ def add_course():
             code=form.code.data, name=form.name.data, collegecode=form.collegecode.data
         )
         course.add()
+        flash("Course added successfully!", "success")
         return redirect("/course")
     else:
         colleges = collegeModel.Colleges.refer()
+        flash("Error: Please check the form for validation errors.", "danger")
         return render_template("courses.html", form=form, data=colleges)
 
 

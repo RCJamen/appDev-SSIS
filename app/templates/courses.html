@@ -31,9 +31,6 @@
             <form class="row mt-4" action="{{ url_for('course.search_course') }}" method="POST">
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                 <div class="col-auto">
-                    <p class="fw-semi-bold fs-5">Search Course: </p>
-                </div>
-                <div class="col-auto">
                     <input type="text" class="form-control" name="information" placeholder="Course Information">
                 </div>
                 <div class="col-auto">

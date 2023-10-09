@@ -1,7 +1,7 @@
 $(function () {
     $(".btn-deleteStudent").click(function () {
         var id = $(this).attr('data-id');
-        if (confirm("Are your sure?")) {
+        if (confirm("Are your sure you want to Delete Student?")) {
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

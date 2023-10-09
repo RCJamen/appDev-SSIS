@@ -27,7 +27,11 @@
                     </div>
                     <div class="form-group mb-3">
                         <label>Course Code</label>
-                        <input type="text" name="coursecode" class="form-control" placeholder="Enter Course Code">
+                        <select name="coursecode" class="form-control" id="coursecode">
+                            {% for course in courses %}
+                            <option value="{{ course[0] }}">{{ course[0] }}</option>
+                            {% endfor %}
+                        </select>
                     </div>
                     <div class="form-group mb-3">
                         <label>Year Level</label>

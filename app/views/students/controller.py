@@ -11,9 +11,8 @@ import app.models.course as courseModel
 @student.route("/student")
 def index():
     students = studentModel.Students.all()
-    return render_template(
-        "students.html", students=students, title="Home", something="something"
-    )
+    courses = courseModel.Courses.refer()
+    return render_template("students.html", students=students, courses=courses)
 
 
 @student.route("/student/delete", methods=["POST"])

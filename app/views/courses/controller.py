@@ -10,7 +10,8 @@ import app.models.college as collegeModel
 @course.route("/course")
 def index():
     courses = courseModel.Courses.all()
-    return render_template("courses.html", courses=courses)
+    collegecode = collegeModel.Colleges.refer()
+    return render_template("courses.html", courses=courses, colleges=collegecode)
 
 
 @course.route("/course/delete", methods=["POST"])

@@ -9,8 +9,9 @@
         <div class="col-sm-2"></div>
         <!-- content goes here -->
         <div class="col-sm-8">
+
             <h2>Course List <button class="btn btn-primary float-end" data-toggle="modal"
-                    data-target="#myCourseModal">Add
+                    data-collegecode="{{colleges}}" data-target="#myCourseModal">Add
                     Course</button></h2>
 
             {%with messages = get_flashed_messages()%}

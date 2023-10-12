@@ -1,11 +1,9 @@
 from flask import Flask, render_template
 from flask_mysql_connector import MySQL
-from flask_bootstrap import Bootstrap
 from config import DB_USERNAME, DB_PASSWORD, DB_NAME, DB_HOST, SECRET_KEY
 from flask_wtf.csrf import CSRFProtect
 
 mysql = MySQL()
-bootstrap = Bootstrap()
 
 
 def create_app():
@@ -17,7 +15,7 @@ def create_app():
         MYSQL_DATABASE=DB_NAME,
         MYSQL_HOST=DB_HOST,
     )
-    bootstrap.init_app(app)
+
     mysql.init_app(app)
     CSRFProtect(app)
 

@@ -20,9 +20,9 @@ def create_app():
     CSRFProtect(app)
 
     # Blueprints
-    from .views.students import student
-    from .views.courses import course
-    from .views.colleges import college
+    from .controller.students import student
+    from .controller.courses import course
+    from .controller.colleges import college
 
     app.register_blueprint(student)
     app.register_blueprint(course)

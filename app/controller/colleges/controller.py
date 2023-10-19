@@ -1,6 +1,6 @@
 from os import name
 from flask.helpers import url_for
-from app.views.colleges.forms import collegeForm
+from app.controller.colleges.forms import collegeForm
 from flask import render_template, redirect, request, jsonify, flash
 from . import college
 import app.models.college as collegeModel

@@ -1,6 +1,6 @@
 from os import name
 from flask.helpers import url_for
-from app.views.students.forms import StudentForm
+from app.controller.students.forms import StudentForm
 from flask import render_template, redirect, request, jsonify, flash
 from . import student
 import app.models.student as studentModel

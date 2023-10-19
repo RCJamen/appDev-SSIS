@@ -18,9 +18,12 @@ def index():
 def delete_course():
     course_code = request.form["code"]
     if courseModel.Courses.delete(course_code):
-        return jsonify(success=True, message="Successfully deleted Course")
+        return jsonify(success=True, message="Successfully deleted Course!")
     else:
-        return jsonify(success=False, message="Failed to Delete Course")
+        return jsonify(
+            success=False,
+            message="Failed to Delete Course, Data was Referenced in Students!",
+        )
 
 
 @course.route("/course/add", methods=["POST", "GET"])

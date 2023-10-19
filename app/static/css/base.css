@@ -1,8 +1,8 @@
 .div-title {
     text-align: center;
     color: #808080;
-    padding-top: 5vh;
-    padding-bottom: 2vh;
+    padding-top: 3vh;
+    padding-bottom: 1vh;
 
 }
 
@@ -20,8 +20,8 @@
 .div-footer {
     text-align: center;
     color: #808080;
-    padding-top: 3vh;
-    padding-bottom: 3vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
 }
 
 .div-footer i {

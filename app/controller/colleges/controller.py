@@ -34,7 +34,7 @@ def add_college():
         return redirect("/college")
     else:
         flash("Error: Please check the form for validation errors.", "danger")
-        return render_template("colleges.html", form=form)
+        return redirect("/college")
 
 
 @college.route("/college/update", methods=["POST"])

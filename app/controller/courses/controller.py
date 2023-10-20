@@ -37,9 +37,8 @@ def add_course():
         flash("Course added successfully!", "success")
         return redirect("/course")
     else:
-        colleges = collegeModel.Colleges.refer()
         flash("Error: Please check the form for validation errors.", "danger")
-        return render_template("courses.html", form=form, data=colleges)
+        return redirect("/course")
 
 
 @course.route("/course/update", methods=["POST"])

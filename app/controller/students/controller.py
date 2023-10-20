@@ -38,10 +38,10 @@ def add_student():
         )
         student.add()
         flash("Student added successfully!", "success")
-        return redirect("/student")
+        return redirect(url_for(".index"))
     else:
         flash("Error: Please check the form for validation errors.", "danger")
-        return redirect("/student")
+        return redirect(url_for(".index"))
 
 
 @student.route("/student/update", methods=["POST"])

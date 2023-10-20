@@ -31,10 +31,10 @@ def add_college():
         college = collegeModel.Colleges(code=form.code.data, name=form.name.data)
         college.add()
         flash("College added successfully!", "success")
-        return redirect("/college")
+        return redirect(url_for(".index"))
     else:
         flash("Error: Please check the form for validation errors.", "danger")
-        return redirect("/college")
+        return redirect(url_for(".index"))
 
 
 @college.route("/college/update", methods=["POST"])

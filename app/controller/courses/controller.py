@@ -35,10 +35,10 @@ def add_course():
         )
         course.add()
         flash("Course added successfully!", "success")
-        return redirect("/course")
+        return redirect(url_for(".index"))
     else:
         flash("Error: Please check the form for validation errors.", "danger")
-        return redirect("/course")
+        return redirect(url_for(".index"))
 
 
 @course.route("/course/update", methods=["POST"])

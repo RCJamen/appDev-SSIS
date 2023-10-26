@@ -27,7 +27,7 @@ def delete_college():
 @student.route("/student/add", methods=["POST", "GET"])
 def add_student():
     form = StudentForm(request.form)
-    if request.method == "POST" and form.validate():
+    if request.method == "POST" and form.validate():        
         student = studentModel.Students(
             id=form.id.data,
             firstname=form.firstname.data,
@@ -36,11 +36,16 @@ def add_student():
             year=form.year.data,
             gender=form.gender.data,
         )
+        existing_student = studentModel.Students.exists(form.id.data)
+        if existing_student:
+            flash("Error: Student with the same ID already exists.", "danger")
+            return redirect(url_for(".index"))
+
         student.add()
         flash("Student added successfully!", "success")
         return redirect(url_for(".index"))
     else:
-        flash("Error: Please check the form for validation errors.", "danger")
+        flash("Error: Failed to add Student, Please check your Input.", "danger")
         return redirect(url_for(".index"))
 
 

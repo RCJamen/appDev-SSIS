@@ -26,6 +26,14 @@ class Students(object):
         mysql.connection.commit()
 
     @classmethod
+    def exists(cls, id):
+        cursor = mysql.connection.cursor()
+        check_sql = "SELECT id FROM students WHERE id = %s"
+        cursor.execute(check_sql, (id,))
+        existing_student = cursor.fetchone()
+        return existing_student is not None
+
+    @classmethod
     def all(cls):
         cursor = mysql.connection.cursor()
         sql = "SELECT * FROM students"

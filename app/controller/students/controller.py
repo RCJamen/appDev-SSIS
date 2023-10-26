@@ -67,7 +67,7 @@ def update_student():
 def search_student():
     info = request.form.get("information")
     if info is None or info.strip() == "":
-        return redirect(url_for(".index"))
+            return redirect(url_for(".index"))
     else:
         students = studentModel.Students.search(info)
     return render_template("students.html", students=students)

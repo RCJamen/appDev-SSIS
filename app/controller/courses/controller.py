@@ -58,7 +58,7 @@ def update_course():
 def search_course():
     info = request.form.get("information")
     if info is None or info.strip() == "":
-        courses = courseModel.Courses.all()
+        return redirect(url_for(".index"))
     else:
         courses = courseModel.Courses.search(info)
     return render_template("courses.html", courses=courses)

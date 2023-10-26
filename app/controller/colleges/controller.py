@@ -54,7 +54,7 @@ def update_college():
 def search_college():
     info = request.form.get("information")
     if info is None or info.strip() == "":
-        colleges = collegeModel.Colleges.all()
+        return redirect(url_for(".index"))
     else:
         colleges = collegeModel.Colleges.search(info)
     return render_template("colleges.html", colleges=colleges)

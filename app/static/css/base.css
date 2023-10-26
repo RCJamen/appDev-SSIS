@@ -16,12 +16,15 @@
     color: #696969;
 }
 
-
 .div-footer {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    background-color: #f8f9fa;
     text-align: center;
-    color: #808080;
-    padding-top: 2vh;
-    padding-bottom: 1vh;
+    padding: 10px;
+    z-index: 999;
 }
 
 .div-footer i {

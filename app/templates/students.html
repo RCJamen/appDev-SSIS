@@ -76,10 +76,17 @@
                     {%endfor%}
                 </tbody>
             </table>
+            <nav>
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link" href="{{ url_for('student.index', page=prev_page) }}">Prev</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="{{ url_for('student.index', page=next_page) }}">Next</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-        <!-- Content ends here-->
-        <div class="col-sm-2"></div>
     </div>
-</div>
-<!-- END OF STUDENTS -->
-{% endblock %}
+    <!-- END OF STUDENTS -->
+    {% endblock %}

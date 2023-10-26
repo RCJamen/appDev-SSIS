@@ -18,8 +18,8 @@ class collegeForm(FlaskForm):
         [
             validators.DataRequired(),
             validators.Regexp(
-                regex=r"^[A-Za-z]+$",
-                message="Only letters are allowed in the name field.",
+                regex=r"^[A-Za-z\s]+$",
+                message="Only letters and spaces are allowed in the name field.",
             ),
         ],
     )

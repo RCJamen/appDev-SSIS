@@ -23,6 +23,8 @@
                     <div class="form-group mb-3">
                         <label>College Code</label>
                         <select name="collegecode" class="form-control" id="collegecode">
+                            <option value="">Enter College Code</option>
+
                             {% for college in colleges %}
                             <option value="{{ college[0] }}">{{ college[0] }}</option>
                             {% endfor %}

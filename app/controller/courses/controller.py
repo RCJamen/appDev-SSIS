@@ -42,7 +42,7 @@ def add_course():
         flash("Course added successfully!", "success")
         return redirect(url_for(".index"))
     else:
-        flash("Error: Please check the form for validation errors.", "danger")
+        flash("Error: Failed to add Courses, Please check your Input.", "danger")
         return redirect(url_for(".index"))
 
 

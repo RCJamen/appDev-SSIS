@@ -29,11 +29,17 @@ def add_college():
     form = collegeForm(request.form)
     if request.method == "POST" and form.validate():
         college = collegeModel.Colleges(code=form.code.data, name=form.name.data)
+        existing_college = collegeModel.Colleges.exists(form.code.data)
+        if existing_college:
+            flash("Error: College with the same CODE already exists.", "danger")
+            return redirect(url_for(".index"))
+
+        
         college.add()
         flash("College added successfully!", "success")
         return redirect(url_for(".index"))
     else:
-        flash("Error: Please check the form for validation errors.", "danger")
+        flash("Error: Failed to add College, Please check your Input.", "danger")
         return redirect(url_for(".index"))
 
 

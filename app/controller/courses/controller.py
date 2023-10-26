@@ -33,6 +33,11 @@ def add_course():
         course = courseModel.Courses(
             code=form.code.data, name=form.name.data, collegecode=form.collegecode.data
         )
+        existing_course = courseModel.Courses.exists(form.code.data)
+        if existing_course:
+            flash("Error: Course with the same CODE already exists.", "danger")
+            return redirect(url_for(".index"))
+        
         course.add()
         flash("Course added successfully!", "success")
         return redirect(url_for(".index"))

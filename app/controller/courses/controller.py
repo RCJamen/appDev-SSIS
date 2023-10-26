@@ -6,13 +6,11 @@ from . import course
 import app.models.course as courseModel
 import app.models.college as collegeModel
 
-
 @course.route("/course")
 def index():
     courses = courseModel.Courses.all()
     collegecode = collegeModel.Colleges.refer()
     return render_template("courses.html", courses=courses, colleges=collegecode)
-
 
 @course.route("/course/delete", methods=["POST"])
 def delete_course():
@@ -24,7 +22,6 @@ def delete_course():
             success=False,
             message="Failed to Delete Course, Data was Referenced in Students!",
         )
-
 
 @course.route("/course/add", methods=["POST", "GET"])
 def add_course():
@@ -45,7 +42,6 @@ def add_course():
         flash("Error: Failed to add Courses, Please check your Input.", "danger")
         return redirect(url_for(".index"))
 
-
 @course.route("/course/update", methods=["POST"])
 def update_course():
     if request.method == "POST":
@@ -57,7 +53,6 @@ def update_course():
             return redirect(url_for(".index"))
         except Exception as e:
             return f"Error updating college: {str(e)}"
-
 
 @course.route("/course/search", methods=["GET", "POST"])
 def search_course():

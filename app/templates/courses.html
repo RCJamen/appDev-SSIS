@@ -8,9 +8,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-2"></div>
-        <!-- content goes here -->
         <div class="col-sm-8">
-
             <h2>Course List <button class="btn btn-primary float-end" data-toggle="modal"
                     data-collegecode="{{colleges}}" data-target="#myCourseModal">Add
                     Course</button></h2>
@@ -26,7 +24,6 @@
             {% endfor %}
             {% endif %}
             {% endwith %}
-
 
             <form class="row mt-4" action="{{ url_for('course.search_course') }}" method="POST">
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
@@ -71,5 +68,4 @@
         <div class="p-5"></div>
     </div>
 </div>
-<!-- END OF COURSE -->
 {% endblock %}

@@ -1,6 +1,5 @@
 from app import mysql
 
-
 class Courses(object):
     def __init__(self, code=None, name=None, collegecode=None):
         self.code = code
@@ -21,7 +20,6 @@ class Courses(object):
         cursor.execute(check_sql, (code,))
         existing_student = cursor.fetchone()
         return existing_student is not None
-
 
     @classmethod
     def all(cls):

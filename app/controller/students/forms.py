@@ -2,7 +2,6 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, validators, SubmitField, SelectField
 import app.models.student as models
 
-
 class StudentForm(FlaskForm):
     id = StringField("ID Number", [validators.DataRequired()])
     firstname = StringField("First Name", [validators.DataRequired()])

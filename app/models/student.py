@@ -1,6 +1,5 @@
 from app import mysql
 
-
 class Students(object):
     def __init__(
         self,

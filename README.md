@@ -8,6 +8,9 @@ A web-based Implementation of Student Information System with CRUDL Functionalit
 ```bash
 git clone git@github.com:RCJamen/appDev-SSIS.git
 ```
+```bash
+cd appDev-SSIS
+```
 
 2. Install the requirements.
 ```bash
@@ -23,7 +26,10 @@ cp flaskenv.example .flaskenv
 ```
 and modify .env and .flaskenv data for your own setup.
 
-4. In your MySQL IDE, execute the schema.sql file located in appDev181/dbscript/
+4. Run this Schema Script for Database Configuration
+```bash
+python3 setup_database.py
+```
 
 ## Running Flask
 1. Initiate the Virtual Environment in your Terminal.

@@ -44,7 +44,7 @@ class Students(object):
     @classmethod
     def page(cls, limit, offset):
         cursor = mysql.connection.cursor()
-        sql = "SELECT * FROM students LIMIT %s OFFSET %s"
+        sql = f"SELECT students.*, courses.collegecode FROM students JOIN courses ON students.coursecode = courses.code LIMIT %s OFFSET %s"
         cursor.execute(sql, (limit, offset))
         result = cursor.fetchall()
         return result
@@ -88,10 +88,10 @@ class Students(object):
         conditions = []
         for keyword in keywords:
             conditions.append(
-                f"firstname LIKE '%{keyword}%' OR lastname LIKE '%{keyword}%'"
+                f"id LIKE '%{keyword}%' OR firstname LIKE '%{keyword}%' OR lastname LIKE '%{keyword}%' OR courses.collegecode LIKE '%{keyword}'"
             )
         conditions_sql = " OR ".join(conditions)
-        sql = f"SELECT * FROM students WHERE id = '{info}' OR coursecode = '{info}' OR year = '{info}' OR gender = '{info}' OR ({conditions_sql})"
+        sql = f"SELECT students.*, courses.collegecode FROM students JOIN courses ON students.coursecode = courses.code WHERE students.id = '{info}' OR students.coursecode = '{info}' OR students.year = '{info}' OR students.gender = '{info}' OR ({conditions_sql})"
         cursor.execute(sql)
         result = cursor.fetchall()
         return result

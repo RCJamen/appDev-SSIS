@@ -6,6 +6,7 @@ from flask import render_template, redirect, request, jsonify, flash
 from . import student
 import app.models.student as studentModel
 import app.models.course as courseModel
+import app.models.course as courseModel
 
 
 @student.route("/", defaults={"page": 1})

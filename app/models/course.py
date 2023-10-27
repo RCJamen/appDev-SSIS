@@ -1,5 +1,6 @@
 from app import mysql
 
+
 class Courses(object):
     def __init__(self, code=None, name=None, collegecode=None):
         self.code = code
@@ -12,14 +13,6 @@ class Courses(object):
             VALUES('{self.code}', '{self.name}', '{self.collegecode}')"
         cursor.execute(sql)
         mysql.connection.commit()
-
-    @classmethod
-    def exists(cls, code):
-        cursor = mysql.connection.cursor()
-        check_sql = "SELECT code FROM courses WHERE code = %s"
-        cursor.execute(check_sql, (code,))
-        existing_student = cursor.fetchone()
-        return existing_student is not None
 
     @classmethod
     def all(cls):

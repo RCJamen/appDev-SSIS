@@ -27,7 +27,7 @@
                     </div>
                     <div class="form-group mb-3">
                         <label>Course Code</label>
-                        <select name="coursecode" class="form-control" id="coursecode">
+                        <select name="coursecode" class="form-select" id="coursecode">
                             <option value="">Enter Course Code</option>
                             {% for course in courses %}
                             <option value="{{ course[0] }}">{{ course[0] }}</option>
@@ -37,7 +37,7 @@
                     <div class="form-group mb-3">
                         <label>Year Level</label>
                         <label for="editYearInput">Year Level</label>
-                        <select name="year" class="form-control">
+                        <select name="year" class="form-select">
                             <option value="">Enter Year Level</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -47,7 +47,7 @@
                     </div>
                     <div class="form-group mb-3">
                         <label>Gender</label>
-                        <select name="gender" class="form-control">
+                        <select name="gender" class="form-select">
                             <option value="">Enter Gender</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
@@ -90,7 +90,7 @@
                     </div>
                     <div class="form-group mb-3">
                         <label for="editCoursecodeInput">Course Code</label>
-                        <select name="coursecode" class="form-control" id="coursecode">
+                        <select name="coursecode" class="form-select" id="coursecode">
                             {% for course in courses %}
                             <option value="{{ course[0] }}">{{ course[0] }}</option>
                             {% endfor %}
@@ -98,7 +98,7 @@
                     </div>
                     <div class="form-group mb-3">
                         <label for="editYearInput">Year Level</label>
-                        <select name="year" class="form-control" id="editYearInput">
+                        <select name="year" class="form-select" id="editYearInput">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -107,7 +107,7 @@
                     </div>
                     <div class="form-group mb-3">
                         <label for="editGenderInput">Gender</label>
-                        <select name="gender" class="form-control" id="editGenderInput">
+                        <select name="gender" class="form-select" id="editGenderInput">
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                             <option value="Others">Others</option>

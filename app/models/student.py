@@ -1,5 +1,6 @@
 from app import mysql
 
+
 class Students(object):
     def __init__(
         self,
@@ -37,6 +38,14 @@ class Students(object):
         cursor = mysql.connection.cursor()
         sql = "SELECT * FROM students"
         cursor.execute(sql)
+        result = cursor.fetchall()
+        return result
+
+    @classmethod
+    def page(cls, limit, offset):
+        cursor = mysql.connection.cursor()
+        sql = "SELECT * FROM students LIMIT %s OFFSET %s"
+        cursor.execute(sql, (limit, offset))
         result = cursor.fetchall()
         return result
 

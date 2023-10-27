@@ -44,8 +44,25 @@ VALUES ('BSCS', 'Bachelor of Science in Computer Science', 'CCS'),
 		('BSCE', 'Bachelor of Science in Civil Engineering', 'COET'),
 		('BSP', 'Bachelor of Science in Philosophy', 'CASS');
 
-INSERT INTO `students`(`id`, `firstname`, `lastname`,`coursecode`,`year`,`gender`) 
-VALUES ('2019-2093','Ramel Cary','Jamen','BSCS','1','Male'),
-		('2019-0523','Edward Vincent','Escasio','BSCE','4','Male'),
-		('2018-5069','Edward James','Bongo','BSA','3','Male'),
-		('2019-2932','Kenneth Martin','Gagno','BSM','4','Male');
+INSERT INTO `students`(`id`, `firstname`, `lastname`, `coursecode`, `year`, `gender`)
+VALUES
+    ('2028-1001', 'John Alice', 'Smith', 'BSA', '1', 'Female'),
+    ('2028-1002', 'Robert Bob', 'Johnson', 'BSCE', '2', 'Male'),
+    ('2028-1003', 'Michael Charlie', 'Davis', 'BSCS', '3', 'Others'),
+    ('2028-1004', 'David John', 'Anderson', 'BSM', '4', 'Male'),
+    ('2028-1005', 'Emily James', 'Brown', 'BSP', '1', 'Female'),
+    ('2028-1006', 'William Frank', 'Lee', 'BSA', '2', 'Male'),
+    ('2028-1007', 'Mary Grace', 'Wilson', 'BSCE', '3', 'Female'),
+    ('2028-1008', 'James Henry', 'Garcia', 'BSCS', '4', 'Male'),
+    ('2028-1009', 'Linda Ivy', 'Hernandez', 'BSM', '1', 'Female'),
+    ('2028-1010', 'Robert Jack', 'Martinez', 'BSP', '2', 'Male'),
+    ('2028-1011', 'Mary Katherine', 'Lopez', 'BSA', '3', 'Female'),
+    ('2028-1012', 'John Leo', 'Taylor', 'BSCE', '4', 'Male'),
+    ('2028-1013', 'David Mia', 'Rodriguez', 'BSCS', '1', 'Female'),
+    ('2028-1014', 'Sarah Nathan', 'Harris', 'BSM', '2', 'Male'),
+    ('2028-1015', 'John Olivia', 'Thomas', 'BSP', '3', 'Female'),
+    ('2028-1016', 'William Peter', 'Smith', 'BSA', '4', 'Male'),
+    ('2028-1017', 'Nancy Quinn', 'Johnson', 'BSCE', '1', 'Female'),
+    ('2028-1018', 'Michael Robert', 'Davis', 'BSCS', '2', 'Male'),
+    ('2028-1019', 'Emily Samantha', 'Anderson', 'BSM', '3', 'Female'),
+    ('2028-1020', 'David Thomas', 'Brown', 'BSP', '4', 'Male');

@@ -41,6 +41,7 @@
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
+                        <th scope="col">Photo</th>
                         <th scope="col">First Name</th>
                         <th scope="col">Last Name</th>
                         <th scope="col">Course Code</th>
@@ -54,16 +55,18 @@
                     {% for student in students %}
                     <tr>
                         <td>{{student[0]}}</td>
-                        <td>{{student[1]}}</td>
+                        <td> <img src="{{student[1]}}" alt="" /></td>
                         <td>{{student[2]}}</td>
                         <td>{{student[3]}}</td>
                         <td>{{student[6]}}</td>
                         <td>{{student[4]}}</td>
                         <td>{{student[5]}}</td>
+                        <td>{{student[6]}}</td>
                         <td>
                             <button class="btn btn-warning btn-sm edit-btnStudent" data-toggle="modal"
-                                data-id="{{student[0]}}" data-firstname="{{student[1]}}" data-lastname="{{student[2]}}"
-                                data-coursecode="{{student[3]}}" data-year="{{student[4]}}" data-gender="{{student[5]}}"
+                                data-id="{{student[0]}}" data-photo="{{student[1]}}" data-firstname="{{student[2]}}"
+                                data-lastname="{{student[3]}}" data-coursecode="{{student[4]}}"
+                                data-year="{{student[5]}}" data-gender="{{student[6]}}"
                                 data-target="#editStudentModal">Edit</button>
                             <button data-id="{{ student[0]}}"
                                 class="btn btn-danger btn-sm btn-deleteStudent">Delete</button>

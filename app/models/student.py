@@ -5,6 +5,7 @@ class Students(object):
     def __init__(
         self,
         id=None,
+        photo=None,
         firstname=None,
         lastname=None,
         coursecode=None,
@@ -12,6 +13,7 @@ class Students(object):
         gender=None,
     ):
         self.id = id
+        self.photo = photo
         self.firstname = firstname
         self.lastname = lastname
         self.coursecode = coursecode
@@ -19,9 +21,15 @@ class Students(object):
         self.gender = gender
 
     def add(self):
+        print(self.id)
+        print(self.photo)
+        print(type(self.photo))
+        print(self.firstname)
+        print(self.lastname)
+
         cursor = mysql.connection.cursor()
-        sql = f"INSERT INTO students(id, firstname, lastname, coursecode, year, gender) \
-            VALUES('{self.id}', '{self.firstname}', '{self.lastname}', '{self.coursecode}', '{self.year}', '{self.gender}')"
+        sql = f"INSERT INTO students(id, photo, firstname, lastname, coursecode, year, gender) \
+            VALUES('{self.id}', '{self.photo}', '{self.firstname}', '{self.lastname}', '{self.coursecode}', '{self.year}', '{self.gender}')"
         cursor.execute(sql)
         mysql.connection.commit()
 
@@ -64,19 +72,20 @@ class Students(object):
             cursor.close()
 
     @classmethod
-    def update(cls, id, firstname, lastname, coursecode, year, gender):
+    def update(cls, id, photo, firstname, lastname, coursecode, year, gender):
         cursor = mysql.connection.cursor()
         cursor.execute(
             """
             UPDATE students
-            SET firstname = %s,
+            SET photo= %s, 
+                firstname = %s,
                 lastname = %s,
                 coursecode = %s,
                 year = %s,
                 gender = %s
             WHERE id = %s
             """,
-            (firstname, lastname, coursecode, year, gender, id),
+            (photo, firstname, lastname, coursecode, year, gender, id),
         )
         mysql.connection.commit()
 

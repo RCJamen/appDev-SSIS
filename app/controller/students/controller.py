@@ -7,12 +7,29 @@ from . import student
 import app.models.student as studentModel
 import app.models.course as courseModel
 import app.models.course as courseModel
+from cloudinary.uploader import upload, destroy
+
+ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg"}
 
 
+def allowed_file(filename):
+    return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+def upload_to_cloudinary(file):
+    try:
+        upload_result = upload(file)
+        return upload_result
+    except Exception as e:
+        print(f"Error uploading to Cloudinary: {e}")
+        return None
+
+
+# Routes Here
 @student.route("/", defaults={"page": 1})
 @student.route("/student/<int:page>")
 def index(page):
-    limit = 7
+    limit = 5
     offset = page * limit - limit
     total_row = len(studentModel.Students.all())
     total_page = ceil(total_row / limit)
@@ -43,8 +60,27 @@ def delete_college():
 def add_student():
     form = StudentForm(request.form)
     if request.method == "POST" and form.validate():
+        if "photo" in request.files:
+            file = request.files["photo"]
+            if not allowed_file(file.filename):
+                flash(
+                    "Error: Invalid file extension. Allowed extensions are png, jpg, and jpeg.",
+                    "danger",
+                )
+                return redirect(url_for(".index"))
+            upload_result = upload_to_cloudinary(file)
+            if upload_result and "secure_url" in upload_result:
+                photo_url = upload_result["secure_url"]
+            else:
+                flash("Error: Failed to upload photo to Cloudinary.", "danger")
+                return redirect(url_for(".index"))
+        else:
+            flash("Error: No photo provided.", "danger")
+            return redirect(url_for(".index"))
+
         student = studentModel.Students(
             id=form.id.data,
+            photo=photo_url,
             firstname=form.firstname.data,
             lastname=form.lastname.data,
             coursecode=form.coursecode.data,
@@ -55,7 +91,6 @@ def add_student():
         if existing_student:
             flash("Error: Student with the same ID already exists.", "danger")
             return redirect(url_for(".index"))
-
         student.add()
         flash("Student added successfully!", "success")
         return redirect(url_for(".index"))
@@ -68,6 +103,7 @@ def add_student():
 def update_student():
     if request.method == "POST":
         id = request.form["id"]
+        photo = request.form["photo"]
         firstname = request.form["firstname"]
         lastname = request.form["lastname"]
         coursecode = request.form["coursecode"]
@@ -75,7 +111,7 @@ def update_student():
         gender = request.form["gender"]
         try:
             studentModel.Students.update(
-                id, firstname, lastname, coursecode, year, gender
+                id, photo, firstname, lastname, coursecode, year, gender
             )
             return redirect(url_for(".index"))
         except Exception as e:

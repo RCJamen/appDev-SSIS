@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, validators, SubmitField, SelectField
+from wtforms import StringField, validators, SubmitField, SelectField, FileField
 
 
 class StudentForm(FlaskForm):
@@ -13,6 +13,8 @@ class StudentForm(FlaskForm):
             ),
         ],
     )
+    photo = FileField("Upload File", validators=[validators.DataRequired()])
+
     firstname = StringField(
         "First Name",
         [

@@ -5,10 +5,12 @@ from flask import render_template, redirect, request, jsonify, flash
 from . import college
 import app.models.college as collegeModel
 
-@college.route("/college")
+
+@college.route("/college", methods=["GET", "POST"])
 def index():
     colleges = collegeModel.Colleges.all()
     return render_template("colleges.html", colleges=colleges)
+
 
 @college.route("/college/delete", methods=["POST"])
 def delete_college():
@@ -20,6 +22,7 @@ def delete_college():
             success=False,
             message="Failed to Delete College, Data was Referenced in Courses!",
         )
+
 
 @college.route("/college/add", methods=["POST", "GET"])
 def add_college():
@@ -37,6 +40,7 @@ def add_college():
         flash("Error: Failed to add College, Please check your Input.", "danger")
         return redirect(url_for(".index"))
 
+
 @college.route("/college/update", methods=["POST"])
 def update_college():
     if request.method == "POST":
@@ -47,6 +51,7 @@ def update_college():
             return redirect(url_for(".index"))
         except Exception as e:
             return f"Error updating college: {str(e)}"
+
 
 @college.route("/college/search", methods=["GET", "POST"])
 def search_college():

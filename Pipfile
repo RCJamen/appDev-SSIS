@@ -11,6 +11,7 @@ flask-bootstrap = "*"
 flask-wtf = "*"
 jinja2 = "*"
 flask-paginate = "*"
+cloudinary = "*"
 
 [dev-packages]
 

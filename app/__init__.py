@@ -1,10 +1,17 @@
-from flask import Flask, render_template
+import os
+import cloudinary
+from flask import Flask
 from flask_mysql_connector import MySQL
 from config import DB_USERNAME, DB_PASSWORD, DB_NAME, DB_HOST, SECRET_KEY
 from flask_wtf.csrf import CSRFProtect
 
 mysql = MySQL()
 
+cloudinary.config(
+    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.getenv("CLOUDINARY_API_KEY"),
+    api_secret=os.getenv("CLOUDINARY_API_SECRET"),
+)
 
 def create_app():
     app = Flask(__name__, instance_relative_config=True)

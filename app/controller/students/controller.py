@@ -60,8 +60,9 @@ def delete_college():
 def add_student():
     form = StudentForm(request.form)
     if request.method == "POST" and form.validate():
-        if "photo" in request.files:
-            file = request.files["photo"]
+        file = request.files["photo"]
+        print(file)
+        if str(file) != "<FileStorage: '' ('application/octet-stream')>":
             if not allowed_file(file.filename):
                 flash(
                     "Error: Invalid file extension. Allowed extensions are png, jpg, and jpeg.",
@@ -75,8 +76,8 @@ def add_student():
                 flash("Error: Failed to upload photo to Cloudinary.", "danger")
                 return redirect(url_for(".index"))
         else:
-            flash("Error: No photo provided.", "danger")
-            return redirect(url_for(".index"))
+            photo = "https://res.cloudinary.com/db52qexfl/image/upload/v1700228834/an2b07zud7ifxjmejw8z.jpg"
+            flash("Error: No photo provided.", "warning")
 
         student = studentModel.Students(
             id=form.id.data,
@@ -91,6 +92,7 @@ def add_student():
         if existing_student:
             flash("Error: Student with the same ID already exists.", "danger")
             return redirect(url_for(".index"))
+
         student.add()
         flash("Student added successfully!", "success")
         return redirect(url_for(".index"))
@@ -108,9 +110,6 @@ def update_student():
         coursecode = request.form["coursecode"]
         year = request.form["year"]
         gender = request.form["gender"]
-
-        print(id)
-        print(firstname)
 
         if "photo" in request.files:
             file = request.files["photo"]

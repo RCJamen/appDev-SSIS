@@ -13,7 +13,7 @@ class StudentForm(FlaskForm):
             ),
         ],
     )
-    photo = FileField("Upload File", validators=[validators.DataRequired()])
+    photo = FileField("Upload File")
 
     firstname = StringField(
         "First Name",

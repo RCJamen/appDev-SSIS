@@ -77,7 +77,7 @@ class Students(object):
         cursor.execute(
             """
             UPDATE students
-            SET photo= %s, 
+            SET photo = %s, 
                 firstname = %s,
                 lastname = %s,
                 coursecode = %s,
@@ -104,3 +104,15 @@ class Students(object):
         cursor.execute(sql)
         result = cursor.fetchall()
         return result
+
+    @classmethod
+    def get_photo_by_id(cls, id):
+        cursor = mysql.connection.cursor()
+        sql = f"SELECT photo FROM students WHERE id = '{id}'"
+        cursor.execute(sql)
+        result = cursor.fetchone()
+        cursor.close()
+        if result:
+            photo_data = result[0]
+            return photo_data
+        return None

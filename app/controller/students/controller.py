@@ -7,7 +7,7 @@ from . import student
 import app.models.student as studentModel
 import app.models.course as courseModel
 import app.models.course as courseModel
-from cloudinary.uploader import upload, destroy
+from cloudinary.uploader import upload
 
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg"}
 
@@ -70,7 +70,7 @@ def add_student():
                 return redirect(url_for(".index"))
             upload_result = upload_to_cloudinary(file)
             if upload_result and "secure_url" in upload_result:
-                photo_url = upload_result["secure_url"]
+                photo = upload_result["secure_url"]
             else:
                 flash("Error: Failed to upload photo to Cloudinary.", "danger")
                 return redirect(url_for(".index"))
@@ -80,7 +80,7 @@ def add_student():
 
         student = studentModel.Students(
             id=form.id.data,
-            photo=photo_url,
+            photo=photo,
             firstname=form.firstname.data,
             lastname=form.lastname.data,
             coursecode=form.coursecode.data,
@@ -103,19 +103,44 @@ def add_student():
 def update_student():
     if request.method == "POST":
         id = request.form["id"]
-        photo = request.form["photo"]
         firstname = request.form["firstname"]
         lastname = request.form["lastname"]
         coursecode = request.form["coursecode"]
         year = request.form["year"]
         gender = request.form["gender"]
+
+        print(id)
+        print(firstname)
+
+        if "photo" in request.files:
+            file = request.files["photo"]
+            if str(file) != "<FileStorage: '' ('application/octet-stream')>":
+                if not allowed_file(file.filename):
+                    flash(
+                        "Error: Invalid file extension. Allowed extensions are png, jpg, and jpeg.",
+                        "danger",
+                    )
+                    return redirect(url_for(".index"))
+
+                upload_result = upload_to_cloudinary(file)
+                if upload_result and "secure_url" in upload_result:
+                    photo = upload_result["secure_url"]
+                else:
+                    flash("Error: Failed to upload photo to Cloudinary.", "danger")
+                    return redirect(url_for(".index"))
+            else:
+                photo = studentModel.Students.get_photo_by_id(id)
+                print(photo)
+
         try:
             studentModel.Students.update(
                 id, photo, firstname, lastname, coursecode, year, gender
             )
+            flash("Student updated successfully!", "success")
             return redirect(url_for(".index"))
         except Exception as e:
-            return f"Error updating college: {str(e)}"
+            flash(f"Error updating student: {str(e)}", "danger")
+            return redirect(url_for(".index"))
 
 
 @student.route("/student/search", methods=["GET", "POST"])

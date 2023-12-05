@@ -3,6 +3,7 @@ from flask.helpers import url_for
 from math import ceil
 from app.controller.students.forms import StudentForm
 from flask import render_template, redirect, request, jsonify, flash
+from werkzeug.utils import secure_filename
 from . import student
 import app.models.student as studentModel
 import app.models.course as courseModel
@@ -10,11 +11,14 @@ import app.models.course as courseModel
 from cloudinary.uploader import upload
 
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg"}
-
+MAX_FILE_SIZE = 1 * 1024 * 1024 
 
 def allowed_file(filename):
-    return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
-
+    return (
+        "." in filename
+        and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
+        and request.content_length <= MAX_FILE_SIZE
+    )
 
 def upload_to_cloudinary(file):
     try:
@@ -61,11 +65,10 @@ def add_student():
     form = StudentForm(request.form)
     if request.method == "POST" and form.validate():
         file = request.files["photo"]
-        print(file)
         if str(file) != "<FileStorage: '' ('application/octet-stream')>":
             if not allowed_file(file.filename):
                 flash(
-                    "Error: Invalid file extension. Allowed extensions are png, jpg, and jpeg.",
+                    "Error: Invalid file Upload. Exceeding 2 MB File Size.",
                     "danger",
                 )
                 return redirect(url_for(".index"))
@@ -116,11 +119,11 @@ def update_student():
             if str(file) != "<FileStorage: '' ('application/octet-stream')>":
                 if not allowed_file(file.filename):
                     flash(
-                        "Error: Invalid file extension. Allowed extensions are png, jpg, and jpeg.",
-                        "danger",
+                    "Error: Invalid file Upload. Exceeding 2 MB File Size.",
+                    "danger",
                     )
                     return redirect(url_for(".index"))
-
+                
                 upload_result = upload_to_cloudinary(file)
                 if upload_result and "secure_url" in upload_result:
                     photo = upload_result["secure_url"]
@@ -130,7 +133,6 @@ def update_student():
             else:
                 photo = studentModel.Students.get_photo_by_id(id)
                 print(photo)
-
         try:
             studentModel.Students.update(
                 id, photo, firstname, lastname, coursecode, year, gender

@@ -47,6 +47,6 @@ VALUES ('BSCS', 'Bachelor of Science in Computer Science', 'CCS'),
 
 INSERT INTO `students`(`id`,`photo`, `firstname`, `lastname`, `coursecode`, `year`, `gender`)
 VALUES
-    ('2028-1001', 'https://res.cloudinary.com/db52qexfl/image/upload/v1700200973/cld-sample-4.jpg', 'John Alice', 'Smith', 'BSA', '1', 'Female'),
-    ('2028-1002', 'https://res.cloudinary.com/db52qexfl/image/upload/v1700200973/cld-sample-4.jpg', 'Robert Bob', 'Johnson', 'BSCE', '2', 'Male'),
-    ('2028-1003', 'https://res.cloudinary.com/db52qexfl/image/upload/v1700200973/cld-sample-4.jpg', 'Michael Charlie', 'Davis', 'BSCS', '3', 'Others');
+    ('2028-1001', 'https://res.cloudinary.com/db52qexfl/image/upload/v1701755046/rnog3uiuwd9lp8flzoyo.png', 'John Alice', 'Smith', 'BSA', '1', 'Female'),
+    ('2028-1002', 'https://res.cloudinary.com/db52qexfl/image/upload/v1701754976/x8aiqbn7h1hbznlazd03.png', 'Robert Bob', 'Johnson', 'BSCE', '2', 'Male'),
+    ('2028-1003', 'https://res.cloudinary.com/db52qexfl/image/upload/v1701754976/x8aiqbn7h1hbznlazd03.png', 'Michael Charlie', 'Davis', 'BSCS', '3', 'Others');
